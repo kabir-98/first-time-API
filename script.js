@@ -8,6 +8,7 @@ foodCloseBtn.addEventListener('click', () => {
     mealDetailsContent.parentElement.classList.remove('showfood');
 });
 
+//searching meal
 function getMealList() {
     let searchInputTxt = document.getElementById('search-input').value.trim();
     
@@ -24,7 +25,7 @@ function getMealList() {
                         </div>
                         <div class = "meal-name">
                             <h3>${meal.strMeal}</h3>
-                            <a href = "#" class = "food-btn">Get food</a>
+                            <a href = "#" class = "food-btn">Show Ingredient</a>
                         </div>
                     </div>
                 `;
@@ -48,7 +49,7 @@ function getMealfood(e) {
             .then(data => mealfoodModal(data.meals));
     }
 }
-
+//showing ingredient on pop-up box
 function mealfoodModal(meal) {
 
     console.log(meal);
@@ -76,6 +77,7 @@ function mealfoodModal(meal) {
     mealDetailsContent.innerHTML = html;
     mealDetailsContent.parentElement.classList.add('showfood');
 }
+// showing all the available food
 fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=`)
     .then(response => response.json())
     .then(data => {
